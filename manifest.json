@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Subscribed Only for YouTube",
+  "version": "0.1.0",
+  "description": "Blocks every YouTube video that is not from a channel you subscribe to, and removes those videos from recommendations and search.",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.youtube-nocookie.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "Subscribed Only",
+    "default_popup": "src/popup.html"
+  },
+  "options_page": "src/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://www.youtube-nocookie.com/*"
+      ],
+      "js": ["src/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://www.youtube-nocookie.com/*"
+      ],
+      "js": ["src/sync.js", "src/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Subscribed Only</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header>
+    <h1>Subscribed Only</h1>
+    <label class="switch" title="Turn Subscribed Only on or off">
+      <input type="checkbox" id="enabled" aria-label="Subscribed Only enabled">
+      <span></span>
+    </label>
+  </header>
+  <p id="summary"></p>
+  <p id="syncStatus" class="muted"></p>
+  <p id="problem" class="warn" hidden></p>
+  <div class="row">
+    <button id="sync">Sync now</button>
+    <button id="manage" class="secondary">Manage channels</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscribed Only — Channels</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <main>
+    <h1>Allowed channels</h1>
+    <p class="lede">Videos play only if they come from a channel on this page. Subscribed channels are read from your YouTube account; you can add others by hand.</p>
+
+    <h2>Add a channel by hand</h2>
+    <form id="addForm">
+      <input type="text" id="addInput" placeholder="Channel link, @handle, or channel ID (UC…)" aria-label="Channel to add" autocomplete="off" spellcheck="false">
+      <button type="submit" id="addButton">Add</button>
+    </form>
+    <p id="addStatus" class="muted" role="status"></p>
+
+    <h2 id="extrasHeading">Added by hand</h2>
+    <ul id="extras"></ul>
+
+    <h2 id="subsHeading">From your subscriptions</h2>
+    <div class="toolbar">
+      <input type="search" id="filter" placeholder="Filter" aria-label="Filter subscribed channels">
+    </div>
+    <ul id="subs"></ul>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
